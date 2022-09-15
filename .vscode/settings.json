@@ -1,0 +1,11 @@
+{
+    "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
+    "makefile.makefilePath": "Makefile",
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/kirill/Документы/Documents/bin",
+            "binaryPath": "/home/kirill/Документы/Documents/bin/chess",
+            "binaryArgs": []
+        }
+    ]
+}

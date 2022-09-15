@@ -1,0 +1,4 @@
+obj/src/chess/*.o
+obj/src/chess/*.d
+*.a
+bin/*

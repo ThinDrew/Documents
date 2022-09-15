@@ -1,7 +1,6 @@
 APP_NAME = chess
 LIB_NAME = libchess
 
-
 CFLAGS = -Wall -Werror
 CPPFLAGS = -MMD -I src/libchess -I src/chess
 
@@ -13,7 +12,7 @@ SRC_DIR = src
 
 APP_PATH = $(BIN_DIR)/$(APP_NAME)
 
-LIB_PATH = $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)
+LIB_PATH = $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)/$(LIB_NAME).a
 
 
 SRC_EXT = c

@@ -6,3 +6,6 @@ void PushBack(struct List *data, int value);
 int Pop(struct List *data);
 int PopBack(struct List *data);
 void Print(struct List *data);
+int GetElement(int index, struct List *data);
+int WriteToFile(struct List *data, char* name);
+int ReadFromFile(struct List *data, char* name);
