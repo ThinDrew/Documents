@@ -26,18 +26,30 @@ int main() {
     printf("\n\nWriteData\n");
     WriteToFile(&a, "src/chess/example");
     Print(&a);
+
     printf("\n\nReadData\n");
     ReadFromFile(&a, "src/chess/example");
     Print(&a);
 
-
-    printf("\nPopBack\n");
-    PopBack(&a);
+    printf("\n\nPopByInd\n");
+    PopByInd(&a, 1);
     Print(&a);
 
-    printf("\nPop\n");
-    Pop(&a);
+    printf("\n\nPopByInd\n");
+    PopByInd(&a, 0);
     Print(&a);
+
+    printf("\n\nPopByInd\n");
+    PopByInd(&a, 0);
+    Print(&a);
+
+    // printf("\n\nPopBack\n");
+    // PopBack(&a);
+    // Print(&a);
+
+    // printf("\nPop\n");
+    // Pop(&a);
+    // Print(&a);
 
     return 0;
 }

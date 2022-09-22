@@ -52,7 +52,8 @@ int Pop(struct List *data){
     tmp = data->head;
     val = tmp->data;
     data->head = data->head->next;
-    data->head->prev = NULL;
+    if (data->head != NULL)
+        data->head->prev = NULL;
     free(tmp);
     return val;
 }
@@ -67,19 +68,60 @@ int PopBack(struct List *data){
     tmp = data->tail;
     val = tmp->data;
     data->tail = tmp->prev;
-    data->tail->next = NULL;
+    if (data->tail != NULL)
+        data->tail->next = NULL;
     free(tmp);
     return val;
 }
 
 int GetElement(int index, struct List *data){
-        struct Element *tmp = data->head;
-        int start = 0;
+    struct Element *tmp = data->head;
+    int start = 0;
     while(start != index){
         start++;
         tmp = tmp->next;
     }
     return tmp->data;
+}
+
+void Clean(struct List *data){
+    struct Element *first = data->head;
+    struct Element *second;
+    while (data->head == NULL){
+        second = first->next;
+        free(first);
+        first = second;
+    }
+}
+
+void PopByInd(struct List *data, int index){
+    struct Element *tmp = data->head;
+    int start = 0;
+    while(start != index && tmp->next != NULL){
+        start++;
+        tmp = tmp->next;
+    }
+
+    if (tmp->next != NULL && tmp->prev != NULL){
+            tmp->prev->next = tmp->next;
+            tmp->next->prev = tmp->prev;
+    }
+    else {
+        if (tmp->next != NULL && tmp == data->head){
+            data->head = tmp->next;
+            tmp->next->prev = NULL;
+        }
+        else if(tmp->prev != NULL && tmp == data->tail){
+            data->tail = tmp->prev;
+            data->tail->next = NULL;
+        }
+        else {
+            data->head = NULL;
+            data->tail = NULL;
+        }
+
+    }
+    free(tmp);
 }
 
 int ReadFromFile(struct List *data, char* name){
